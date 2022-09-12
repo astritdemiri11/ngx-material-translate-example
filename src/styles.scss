@@ -1,0 +1,58 @@
+@use "@angular/material" as mat;
+
+@include mat.core();
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@keyframes blurIn {
+  0% {
+    filter: blur(8px);
+  }
+  100% {
+    filter: blur(0);
+  }
+}
+
+@-webkit-keyframes blurIn {
+  0% {
+    -webkit-filter: blur(8px);
+  }
+  100% {
+    -webkit-filter: blur(0);
+  }
+}
+
+@keyframes blurOut {
+  0% {
+    filter: blur(0);
+  }
+  100% {
+    filter: blur(8px);
+  }
+}
+
+@-webkit-keyframes blurOut {
+  0% {
+    -webkit-filter: blur(0);
+  }
+  100% {
+    -webkit-filter: blur(8px);
+  }
+}
+
+.blurIn {
+  -webkit-filter: blur(0);
+  filter: blur(0);
+
+  -webkit-animation: blurIn 500ms;
+  animation: blurIn 500ms;
+}
+
+.blurOut {
+  -webkit-filter: blur(8px);
+  filter: blur(8px);
+
+  -webkit-animation: fadeOut 500ms;
+  animation: fadeOut 500ms;
+}
