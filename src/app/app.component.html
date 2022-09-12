@@ -21,9 +21,9 @@ App
 
 Feature
 <p>Pipe feature translate: <span>{{'hello' | translate:'feature'}}</span></p>
-<p>Directive translate: <span translate="hello" translateFeature="feature"></span></p>
+<p>Directive feature translate: <span translate="hello" translateFeature="feature"></span></p>
 <p>
-  Service translate
+  Service feature translate
   <ng-container *ngIf="translateService.model.languageTranslations('feature') | async as translation">
     <span>{{ translation['hello'] }}</span>
   </ng-container>
