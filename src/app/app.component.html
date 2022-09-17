@@ -1,30 +1,35 @@
-<div class="theme-primary_background">
+<div class="container">
   <mat-language classList="theme-primary_background_300"></mat-language>
+
+  <h1>Example 1:</h1>
+  <p><b>App</b></p>
+
+  <p>
+    Selected language
+    <ng-container *ngIf="languageService.business.getActiveLanguage() as language">
+      <mat-icon [svgIcon]="'flag:' + language.flag"></mat-icon>
+      <span class="theme-accent_color">{{ language.name }}</span>
+    </ng-container>
+  </p>
+
+  <p>Pipe translate: <span class="theme-accent_color">{{'hello' | translate}}</span></p>
+  <p>Directive translate: <span class="theme-accent_color" translate="hello"></span></p>
+  <p>
+    Service translate
+    <ng-container *ngIf="translateService.model.languageTranslations('app') | async as translation">
+      <span class="theme-accent_color">{{ translation['hello'] }}</span>
+    </ng-container>
+  </p>
+
+  <h1>Example 2:</h1>
+  <p><b>Feature</b></p>
+
+  <p>Pipe feature translate: <span class="theme-accent_color">{{'hello' | translate:'feature'}}</span></p>
+  <p>Directive feature translate: <span class="theme-accent_color" translate="hello" translateFeature="feature"></span></p>
+  <p>
+    Service feature translate
+    <ng-container *ngIf="translateService.model.languageTranslations('feature') | async as translation">
+      <span class="theme-accent_color">{{ translation['hello'] }}</span>
+    </ng-container>
+  </p>
 </div>
-
-App
-<p>
-  Selected language
-  <ng-container *ngIf="languageService.business.getActiveLanguage() as language">
-    <span>{{ language.name }}</span>
-  </ng-container>
-</p>
-
-<p>Pipe translate: <span>{{'hello' | translate}}</span></p>
-<p>Directive translate: <span translate="hello"></span></p>
-<p>
-  Service translate
-  <ng-container *ngIf="translateService.model.languageTranslations('app') | async as translation">
-    <span>{{ translation['hello'] }}</span>
-  </ng-container>
-</p>
-
-Feature
-<p>Pipe feature translate: <span>{{'hello' | translate:'feature'}}</span></p>
-<p>Directive feature translate: <span translate="hello" translateFeature="feature"></span></p>
-<p>
-  Service feature translate
-  <ng-container *ngIf="translateService.model.languageTranslations('feature') | async as translation">
-    <span>{{ translation['hello'] }}</span>
-  </ng-container>
-</p>
